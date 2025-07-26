@@ -1,0 +1,54 @@
+@import "tailwindcss";
+/*@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap"); 
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  left: 70px;
+}
+
+.nav-it {
+  float: right;
+  right: -300px;
+  gap: 100px;
+  top: 0px;
+  font-family: "Teko", serif;
+  color: rgb(10, 10, 10);
+}
+
+.link-underline {
+  border-bottom-width: 0;
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(#fff, #fff);
+  background-size: 0 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s ease-in-out;
+}
+
+.link-underline-black {
+  background-image: linear-gradient(transparent, transparent),
+    linear-gradient(rgb(28, 22, 26), rgb(25, 21, 24));
+}
+
+.link-underline:hover {
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  cursor: pointer;
+}
+
+.home:hover {
+  color: #156993;
+  text-decoration: underline;
+  cursor: pointer;
+} 
+
+ .about:hover {
+  color: #156993;
+  text-decoration: underline;
+  cursor: pointer;
+}  */

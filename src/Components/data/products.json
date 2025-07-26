@@ -1,0 +1,241 @@
+[
+    {
+        "category": "CNC CUTTING TOOLS",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/CNC.png",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "link": "/Pro",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/",
+                "catalogue": "https://www.hoffmanngroupusa.com/catalog/"
+            },
+            {
+                "name": "CAREMEX",
+                "image": "/CNC.png",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "link": "/Pro",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
+            },
+            {
+                "name": "Totem",
+                "image": "/CNC.png",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "link": "/Pro",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
+            },
+            {
+                "name": "CERATIZIT",
+                "image": "/CNC.png",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "link": "/Pro",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
+            }
+        ]
+    },
+    {
+        "category": "TAPS",
+        "product": [
+            {
+                "name": "TOTEM",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "EMKAY",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "TOOL HOLDING",
+        "product": [
+            {
+                "name": "BILZ",
+                "image": "/tool2.png",
+                "link": "/Pro",
+                "description": "BILZ tool holders ensure secure clamping, high concentricity, and reliable performance in demanding applications."
+            },
+            {
+                "name": "HOFFMAN",
+                "image": "/tool3.png",
+                "link": "/Pro",
+                "description": "HOFFMAN precision tool holders are optimized for rigidity and accuracy, ideal for high-speed CNC operations."
+            },
+            {
+                "name": "CERATIZIT",
+                "image": "/tool4.png",
+                "link": "/Pro",
+                "description": "CERATIZIT offers innovative tool holding solutions for advanced metal cutting, combining technology and strength."
+            }
+        ]
+    },
+    {
+        "category": "Boaring Solutions",
+        "product": [
+            {
+                "name": "D'adrea",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "Tool Presetter",
+        "product": [
+            {
+                "name": "ELBA",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "Special Tools",
+        "product": [
+            {
+                "name": "PRO Tools",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "CUTTING TOOLS",
+        "product": [
+            {
+                "name": "Lubgraf",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "Callington",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "LUBRICANTS & GREASE",
+        "product": [
+            {
+                "name": "Grease",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "WORK HALDING",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "CERATIZIT",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "METROLOGY",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "CERATIZIT",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "HAND TOOLS",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            },
+            {
+                "name": "Kendo",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "MARKING",
+        "product": [
+            {
+                "name": "Bradma",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "WORK STATION & STORAGE",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "GRINDING & CUTTING",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    },
+    {
+        "category": "FACTORY EQUIPMENT",
+        "product": [
+            {
+                "name": "HOFFMAN",
+                "image": "/tool1.png",
+                "link": "/Pro",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+            }
+        ]
+    }
+]
