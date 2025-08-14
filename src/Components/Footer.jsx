@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import LOGO from "../assets/logo.png";
 import { Globe, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="px-4 py-8 sm:px-6 md:px-8 lg:px-20 md:py-16 flex flex-col gap-8 md:gap-12 w-full bg-gray-50">
       {/* Logo Section */}
       <div className="flex justify-center md:justify-start">
-        <img src={logo} alt="logo" className="h-10 md:h-10 w-auto" />
+        <img src={LOGO} alt="logo" className="h-10 md:h-10 w-auto" />
       </div>
 
       {/* Links Section - Responsive Grid */}
