@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PRO from "./Components/PRO";
 import Career from "./Components/Career";
 import TryNav from "./Components/TryNav";
-import Admin from "./Components/Admin/Admin";
+// import Admin from "./Components/Admin/Admin";
 import Contact from "./Components/Contact";
 import AboutUs from "./Components/About";
 import SmoothFollowCursor from "./Components/SmoothFollowCursor";
@@ -32,7 +32,7 @@ function App() {
           <Route path="/Pro" element={<PRO />} />
           <Route path="Contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
-          <Route path="/Admin" element={<Admin />} />
+          {/* <Route path="/Admin" element={<Admin />} /> */}
           <Route path="/AboutUs" element={<AboutUs />} />
         </Routes>
       </Router>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import { Search, ChevronRight, Trash2, Edit, Upload } from "lucide-react";
-import LOGO from "../../assets/logo.png"; // Adjust the path as necessary
+// Adjust the path as necessary
 import { TrashIcon } from "@heroicons/react/24/solid";
 
 function Admin() {
@@ -41,7 +41,7 @@ function Admin() {
       <div className="w-64 bg-white border-r border-gray-200">
         <div className="p-6 border-b border-gray-200">
           {/* <h1 className="text-xl font-bold text-gray-800">Admin Panel</h1> */}
-          <img src={LOGO} alt="logo" className="h-20 w-25" />
+          <img src="../assets/logo.png" alt="logo" className="h-20 w-25" />
         </div>
         <nav className="mt-2">
           <SidebarItem
