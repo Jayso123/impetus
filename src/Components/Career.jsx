@@ -1,215 +1,448 @@
-import React from "react";
-
-// "use client";
-
-import { useState } from "react";
-// import { Dialog, DialogPanel } from "@headlessui/react";
-// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-// import { NavLink } from "react-router-dom";
-import "../CSS/Career.css";
-// import logo from "../assets/logo.png";
-// import join from "../assets/join3.jpg";
-import Navbar from "./Navbar";
+import React, { useState } from "react";
+import {
+  ChevronRight,
+  Users,
+  Heart,
+  Globe,
+  Award,
+  MapPin,
+  Clock,
+  DollarSign,
+  Mail,
+  Phone,
+  Linkedin,
+  Twitter,
+  Facebook,
+} from "lucide-react";
 import Footer from "./Footer";
+import Navbar from "./Navbar";
 
-// const navigation = [
-//   { name: "PRODUCTS", to: "/Pro" },
-//   { name: "ABOUT US", to: "/about" },
-//   { name: "CAREER", to: "/career" },
-//   { name: "CATALOGUE", to: "/catalogue" },
-// ];
+const CareerPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
-export default function Career() {
-  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    experience: "",
-    position: "",
-    message: "",
-    resume: null,
-  });
+  const jobCategories = [
+    {
+      id: "Sales and Application Engineer",
+      title: "Sales",
+    },
+  ];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const openRoles = [
+    {
+      id: 1,
+      title: "Sales and Application Engineer - Industrial Products",
+      category: "Sales and Application Engineer",
+      location: "Bhavnagar",
+      type: "1-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 2,
+      title: "Sales and Application Engineer - Industrial Products",
+      category: "Sales and Application Engineer",
+      location: "Bhopal (preferred area - Mandideep)",
+      type: "1-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 3,
+      title: "Sales and Application Engineer - Industrial Products",
+      category: "Sales and Application Engineer",
+      location: "Jamnagar",
+      type: "0-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 4,
+      title: "Sales and Application Engineer - Cutting Tools",
+      category: "Sales and Application Engineer",
+      location: "Rajkot",
+      type: "1-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 5,
+      title: "Sales & Service Executive - Cutting Oil & Lubricants",
+      category: "Sales and Application Engineer",
+      location: "Rajkot",
+      type: "0-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 6,
+      title: "Sales and Application Engineer - Industrial Products",
+      category: "Sales and Application Engineer",
+      location: "Vapi",
+      type: "1-3 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+    {
+      id: 7,
+      title: "Sales & Service Executive - Lubricants & Cutting Oil",
+      category: "Sales and Application Engineer",
+      location: "Vapi",
+      type: "1-2 Year",
+      department: "Sales",
+      posted: "2 days ago",
+    },
+  ];
 
-  const handleFileChange = (e) => {
-    setFormData({
-      ...formData,
-      resume: e.target.files[0],
-    });
-  };
+  const benefits = [
+    {
+      icon: "🏥",
+      title: "Health & Wellness",
+      description:
+        "Comprehensive medical, dental, and vision coverage for you and your family",
+    },
+    {
+      icon: "💰",
+      title: "Competitive Compensation",
+      description:
+        "Fair pay, stock options, and performance bonuses that reward your contributions",
+    },
+    {
+      icon: "🏡",
+      title: "Flexible Work",
+      description:
+        "Remote-first culture with flexible hours and work-life balance",
+    },
+    {
+      icon: "📚",
+      title: "Learning & Development",
+      description:
+        "Annual learning budget, conferences, and mentorship programs",
+    },
+    {
+      icon: "🌴",
+      title: "Time Off",
+      description: "Unlimited PTO, sabbatical options, and paid volunteer time",
+    },
+    {
+      icon: "👶",
+      title: "Family Support",
+      description:
+        "Parental leave, childcare assistance, and family-friendly policies",
+    },
+  ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
-  };
+  const companyValues = [
+    {
+      icon: <Users className="w-8 h-8 text-blue-500" />,
+      title: "Collaboration",
+      description:
+        "We believe the best ideas come from diverse teams working together",
+    },
+    {
+      icon: <Heart className="w-8 h-8 text-red-500" />,
+      title: "Empathy",
+      description: "We put ourselves in others' shoes and lead with compassion",
+    },
+    {
+      icon: <Globe className="w-8 h-8 text-green-500" />,
+      title: "Innovation",
+      description: "We embrace change and continuously push boundaries",
+    },
+    {
+      icon: <Award className="w-8 h-8 text-purple-500" />,
+      title: "Excellence",
+      description: "We strive for quality in everything we do, big and small",
+    },
+  ];
+
+  const filteredRoles =
+    selectedCategory === "all"
+      ? openRoles
+      : openRoles.filter((role) => role.category === selectedCategory);
 
   return (
-    <div className="bg-white">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
       <Navbar />
 
-      {/* Rest of the component remains the same */}
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#010010] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-          />
+      {/* Introduction Overview */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            Why Work With Us?
+          </h2>
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            At our company, every individual matters. We're building more than
+            just products – we're creating solutions that improve lives while
+            fostering an environment where everyone can thrive, grow, and make
+            their mark on the world.
+          </p>
         </div>
-        <br />
-        <br />
 
-        {/* Middle Part */}
-        <div className="mt-24 mb-16 flex justify-center">
-          <div className="w-full max-w-3xl">
-            {/* JOIN US background */}
+        {/* Company Values */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {companyValues.map((value, index) => (
+            <div
+              key={index}
+              className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center"
+            >
+              <div className="flex justify-center mb-4">{value.icon}</div>
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
+                {value.title}
+              </h3>
+              <p className="text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-            {/* Form Container */}
-            <div className="bg-white rounded-b-lg p-8 shadow-lg relative -top-20">
-              <h2 className="text-4xl font-bold text-gray-700 mb-6 text-center">
-                Join Our Team
+      {/* Culture & Diversity */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                Diversity is Our Strength
               </h2>
-
-              <div>
-                <div className="mb-6">
-                  <label
-                    htmlFor="name"
-                    className="block text-xl font-medium text-gray-700 mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-md"
-                  />
+              <p className="text-lg text-gray-600 mb-6">
+                We celebrate different perspectives, backgrounds, and
+                experiences. Our inclusive culture ensures everyone feels
+                valued, heard, and empowered to bring their authentic selves to
+                work.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <span className="text-gray-700">
+                    Equal opportunity employer
+                  </span>
                 </div>
-
-                <div className="mb-6">
-                  <label
-                    htmlFor="experience"
-                    className="block text-xl font-medium text-gray-700 mb-2"
-                  >
-                    Experience
-                  </label>
-                  <input
-                    type="text"
-                    id="experience"
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-md"
-                  />
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <span className="text-gray-700">
+                    Employee resource groups
+                  </span>
                 </div>
-
-                <div className="mb-6">
-                  <label
-                    htmlFor="position"
-                    className="block text-xl font-medium text-gray-700 mb-2"
-                  >
-                    Position
-                  </label>
-                  <input
-                    type="text"
-                    id="position"
-                    name="position"
-                    value={formData.position}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-md"
-                  />
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <span className="text-gray-700">
+                    Inclusive hiring practices
+                  </span>
                 </div>
-
-                <div className="mb-6">
-                  <label
-                    htmlFor="resume"
-                    className="block text-xl font-medium text-gray-700 mb-2"
-                  >
-                    Upload Resume
-                  </label>
-                  <div className="flex items-center">
-                    <button
-                      onClick={() =>
-                        document.getElementById("fileInput").click()
-                      }
-                      className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md"
-                    >
-                      Choose File
-                    </button>
-                    <span className="ml-3 text-gray-600">
-                      {formData.resume
-                        ? formData.resume.name
-                        : "No file chosen"}
-                    </span>
-                    <input
-                      type="file"
-                      id="fileInput"
-                      onChange={handleFileChange}
-                      className="hidden"
-                      accept=".pdf,.doc,.docx"
-                    />
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                  <span className="text-gray-700">
+                    Diversity & inclusion training
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-lg">
+              <div className="text-center">
+                <div className="text-4xl mb-4">🌍</div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  Global Team
+                </h3>
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div>
+                    <div className="text-2xl font-bold text-blue-600">40+</div>
+                    <div className="text-sm text-gray-600">Countries</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-blue-600">15+</div>
+                    <div className="text-sm text-gray-600">Languages</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-blue-600">60%</div>
+                    <div className="text-sm text-gray-600">
+                      Women in Leadership
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-blue-600">85%</div>
+                    <div className="text-sm text-gray-600">
+                      Employee Satisfaction
+                    </div>
                   </div>
                 </div>
-
-                <div className="mb-8">
-                  <label
-                    htmlFor="message"
-                    className="block text-xl font-medium text-gray-700 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows="4"
-                    className="w-full p-3 border border-gray-300 rounded-md"
-                  ></textarea>
-                </div>
-
-                <button
-                  onClick={handleSubmit}
-                  className="w-full bg-blue-500 text-white py-3 px-4 rounded-md text-xl font-medium hover:bg-blue-600 transition duration-300"
-                >
-                  Submit Application
-                </button>
               </div>
             </div>
           </div>
         </div>
-        {/* Middle end*/}
+      </div>
 
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          />
+      {/* Current Open Roles */}
+      <div className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4 md:mb-0 text-center md:text-left">
+              Open Positions
+            </h2>
+            <div className="flex flex-wrap gap-2 sm:gap-4 justify-center md:justify-end">
+              <button
+                onClick={() => setSelectedCategory("all")}
+                className={`px-3 sm:px-4 py-2 rounded text-sm sm:text-base ${
+                  selectedCategory === "all"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                All Roles
+              </button>
+              {jobCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-3 sm:px-4 py-2 rounded text-sm sm:text-base whitespace-nowrap ${
+                    selectedCategory === category.id
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  }`}
+                >
+                  <span className="hidden sm:inline">
+                    {category.title.split(" ")[0]}
+                  </span>
+                  <span className="sm:hidden">{category.icon}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {filteredRoles.map((role) => (
+              <div
+                key={role.id}
+                className="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition-colors"
+              >
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {role.title}
+                    </h3>
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+                      <div className="flex items-center">
+                        <MapPin className="w-4 h-4 mr-1" />
+                        {role.location}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-4 h-4 mr-1" />
+                        {role.type}
+                      </div>
+                      <div className="flex items-center">
+                        <Users className="w-4 h-4 mr-1" />
+                        {role.department}
+                      </div>
+                    </div>
+                    <span className="text-sm text-gray-500">
+                      Posted {role.posted}
+                    </span>
+                  </div>
+                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors mt-4 md:mt-0">
+                    Apply Now
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* FOOTER */}
+      {/* How to Apply */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+            How to Apply
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Ready to join our team? Here's how to get started on your journey
+            with us.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-blue-600">1</span>
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-3">
+              Find Your Role
+            </h3>
+            <p className="text-gray-600">
+              Browse our open positions and find the role that matches your
+              skills and interests.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-blue-600">2</span>
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-3">
+              Submit Application
+            </h3>
+            <p className="text-gray-600">
+              Send us your resume, cover letter, and any relevant portfolio work
+              or projects.
+            </p>
+          </div>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-blue-600">3</span>
+            </div>
+            <h3 className="text-xl font-bold text-gray-800 mb-3">
+              Interview Process
+            </h3>
+            <p className="text-gray-600">
+              Connect with our team through interviews and get to know each
+              other better.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-blue-50 p-8 rounded-lg mt-12">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              Don't See the Perfect Role?
+            </h3>
+            <p className="text-lg text-gray-600 mb-6">
+              We're always looking for talented individuals. Send us your resume
+              and we'll keep you in mind for future opportunities.
+            </p>
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+              Send General Application
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="bg-gray-800 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Benefits & Perks
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              We believe in taking care of our team with comprehensive benefits
+              and perks that support your whole life.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="bg-gray-700 p-6 rounded-lg">
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <p className="text-gray-300">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
       <Footer />
     </div>
   );
-}
+};
+
+export default CareerPage;

@@ -125,7 +125,7 @@ const AboutUs = () => {
                 />
 
                 {/* Navigation Buttons */}
-                <button
+                {/* <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg transition-all duration-300"
                 >
@@ -162,7 +162,7 @@ const AboutUs = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </button>
+                </button> */}
 
                 {/* Dots Indicator */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">

@@ -5,8 +5,8 @@ import { href, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const navigation = [
-  { name: "PRODUCTS", to: "/Pro" },
   { name: "ABOUT US", to: "/AboutUs" },
+  { name: "PRODUCTS", to: "/Pro" },
   { name: "CAREER", to: "/career" },
   {
     name: "CATALOGUE",
@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="fixed inset-x-0 top-0 z-50 bg-white shadow-sm">
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
@@ -27,7 +27,7 @@ export default function Navbar() {
           <div className="flex lg:flex-1">
             <NavLink to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img alt="" src={logo} className="h-16 w-auto" />
+              <img alt="" src={logo} className="h-10 w-auto" />
             </NavLink>
           </div>
 

@@ -5,7 +5,7 @@ import Career from "./Components/Career";
 import TryNav from "./Components/TryNav";
 import Admin from "./Components/Admin/Admin";
 import Contact from "./Components/Contact";
-import AboutUs from "./components/AboutUs";
+import AboutUs from "./Components/About";
 import SmoothFollowCursor from "./Components/SmoothFollowCursor";
 // import ScrollAnimation from "./Components/Bin/ScrollAnimation";
 

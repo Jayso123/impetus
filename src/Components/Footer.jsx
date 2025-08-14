@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="px-4 py-8 sm:px-6 md:px-8 lg:px-20 md:py-16 flex flex-col gap-8 md:gap-12 w-full bg-gray-50">
       {/* Logo Section */}
       <div className="flex justify-center md:justify-start">
-        <img src={logo} alt="logo" className="h-16 md:h-20 w-auto" />
+        <img src={logo} alt="logo" className="h-10 md:h-10 w-auto" />
       </div>
 
       {/* Links Section - Responsive Grid */}
@@ -28,10 +28,18 @@ const Footer = () => {
             </li>
             <li className="font-medium">
               <a
-                href="tel:+917433099901"
+                href="tel:+91 77718 99901"
                 className="hover:text-gray-800 transition-colors"
               >
-                +91-7433099901
+                +91 77718 99901
+              </a>
+            </li>
+            <li className="font-medium">
+              <a
+                href="mailto:contact@impetustechno.com"
+                className="hover:text-gray-800 transition-colors"
+              >
+                contact@impetustechno.com
               </a>
             </li>
           </ul>

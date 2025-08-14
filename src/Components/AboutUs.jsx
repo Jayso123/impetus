@@ -153,7 +153,7 @@ const AboutUs = () => {
                   />
 
                   {/* Navigation Buttons - Hidden on very small screens */}
-                  <button
+                  {/* <button
                     onClick={prevImage}
                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-1.5 sm:p-2 rounded-full shadow-lg transition-all duration-300 hidden xs:block"
                     aria-label="Previous image"
@@ -166,7 +166,7 @@ const AboutUs = () => {
                     aria-label="Next image"
                   >
                     <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
-                  </button>
+                  </button> */}
 
                   {/* Dots Indicator */}
                   <div className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex space-x-1.5 sm:space-x-2">
