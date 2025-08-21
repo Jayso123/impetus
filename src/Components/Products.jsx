@@ -1,45 +1,38 @@
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, Link } from "react-router-dom";
 import Footer from "./Footer";
 import product from "./data/products.json";
 import Navbar from "./Navbar";
 
-export default function PRO() {
+export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [showAllProducts, setShowAllProducts] = useState(false);
 
-  // Filter products based on selected category
   const filteredProducts = selectedCategory
     ? product.filter((item) => item.category === selectedCategory)
     : product;
 
-  // Handle category click
   const handleCategoryClick = (categoryName) => {
     setSelectedCategory(categoryName);
   };
 
-  // Handle home/products click to reset
   const handleHomeClick = () => {
     setSelectedCategory(null);
   };
 
-  // Get all products for display
   const allProducts = product.flatMap((group) =>
     Array.isArray(group.product) ? group.product : []
   );
 
   const displayProducts = showAllProducts
     ? allProducts
-    : allProducts.slice(0, 4);
+    : allProducts.slice(0, 5);
 
   return (
     <div className="bg-white min-h-screen">
       <Navbar />
-
       <div className="relative isolate px-4 sm:px-6 pt-14 lg:px-8">
-        {/* Background gradients */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -53,18 +46,8 @@ export default function PRO() {
           />
         </div>
 
-        {/* Hero Section - Better mobile spacing */}
         <div className="mx-auto max-w-7xl py-16 sm:py-24 lg:py-32">
-          <div className="text-center">
-            <h1 className="text-balance text-3xl sm:text-5xl lg:text-7xl font-semibold tracking-tight text-gray-900">
-              <span className="text-sky-700">IMPETUS </span>
-              <span className="block sm:inline">TECHNO SOLUTIONS</span>
-            </h1>
-          </div>
-
-          {/* Main Content */}
           <div className="container mx-auto px-2 sm:px-4 py-8 flex-grow">
-            {/* Mobile Category Pills - No Popup! */}
             <div className="md:hidden mb-6">
               <div className="mb-4">
                 <h2 className="text-lg font-semibold text-gray-900 mb-3">
@@ -99,10 +82,8 @@ export default function PRO() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-6">
-              {/* Desktop Only Sidebar */}
               <div className="hidden md:block w-1/4">
                 <div className="sticky top-6">
-                  {/* Desktop Breadcrumb */}
                   <nav className="bg-white p-4 rounded-lg shadow-sm mb-4 border">
                     <ul className="flex flex-wrap text-gray-700 text-sm gap-1">
                       <li>
@@ -131,7 +112,6 @@ export default function PRO() {
                     </ul>
                   </nav>
 
-                  {/* Desktop Category Section */}
                   <div className="bg-white rounded-lg shadow-sm border">
                     <div className="p-4 border-b bg-gradient-to-r from-sky-50 to-blue-50">
                       <h2 className="text-xl font-semibold text-gray-800">
@@ -141,9 +121,7 @@ export default function PRO() {
                         Find everything you need
                       </p>
                     </div>
-
                     <div className="p-4 space-y-2">
-                      {/* All Products Option - Desktop */}
                       <div
                         className={`p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                           !selectedCategory
@@ -160,7 +138,6 @@ export default function PRO() {
                         </p>
                       </div>
 
-                      {/* Category Items - Desktop */}
                       {product.map((categoryItem, index) => (
                         <div
                           key={index}
@@ -176,21 +153,17 @@ export default function PRO() {
                               handleCategoryClick(categoryItem.category)
                             }
                             onMouseEnter={() => setHoveredCategory(index)}
-                            onMouseLeave={() => setHoveredCategory(null)}
+                            onMouseLeave={() => setHoveredCategory(index)}
                           >
                             <div className="flex justify-between items-center">
                               <div>
                                 <h3 className="font-semibold text-gray-800">
                                   {categoryItem.category}
                                 </h3>
-                                <p className="text-xs text-gray-600">
-                                  {categoryItem.product?.length || 0} products
-                                </p>
                               </div>
                             </div>
                           </div>
 
-                          {/* Desktop: Hover to show products */}
                           <div
                             className={`overflow-hidden transition-all duration-300 ease-in-out ${
                               hoveredCategory === index
@@ -202,12 +175,13 @@ export default function PRO() {
                               <ul className="space-y-2">
                                 {categoryItem.product?.map((product, idx) => (
                                   <li key={idx}>
-                                    <a
-                                      href={product.link}
-                                      className="text-gray-600 hover:text-sky-600 block py-1 text-sm transition-colors"
+                                    <Link
+                                      to={`/products/${encodeURIComponent(
+                                        product.Uname
+                                      )}`}
                                     >
                                       {product.name}
-                                    </a>
+                                    </Link>
                                   </li>
                                 ))}
                               </ul>
@@ -220,9 +194,7 @@ export default function PRO() {
                 </div>
               </div>
 
-              {/* Product Grid - Mobile Full Width, Desktop 3/4 */}
               <div className="w-full md:w-3/4">
-                {/* Section Header */}
                 <div className="mb-6">
                   <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                     {selectedCategory || "Featured Products"}
@@ -234,16 +206,14 @@ export default function PRO() {
                   </p>
                 </div>
 
-                {/* Product Grid - Enhanced for mobile */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {selectedCategory
-                    ? // Show filtered products when category is selected
-                      filteredProducts[0]?.product?.map((product, index) => (
+                    ? filteredProducts[0]?.product?.map((product, index) => (
                         <div
                           key={index}
-                          className="bg-white p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-sky-200"
+                          className="bg-white p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-sky-200 flex flex-col"
                         >
-                          <div>
+                          <div className="w-full h-48 flex items-center justify-center overflow-hidden mb-4">
                             <img
                               src={product.image}
                               alt={product.name}
@@ -251,43 +221,41 @@ export default function PRO() {
                               loading="lazy"
                             />
                           </div>
-                          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                            {product.name}
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                            {product.description}
-                          </p>
-                          <div className="flex flex-col sm:flex-row gap-2">
-                            <a
-                              href={product.knowmore}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1"
-                            >
-                              <button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
-                                Know More
-                              </button>
-                            </a>
-                            <a
-                              href={product.catalogue}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1"
-                            >
-                              <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
-                                Catalogue
-                              </button>
-                            </a>
+                          <div className="flex-1 flex flex-col justify-between">
+                            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                              {product.description}
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                              <a
+                                href={product.knowmore}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1"
+                              >
+                                <button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
+                                  Know More
+                                </button>
+                              </a>
+                              <a
+                                href={product.catalogue}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1"
+                              >
+                                <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
+                                  Catalogue
+                                </button>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       ))
-                    : // Show featured products when no category selected
-                      displayProducts.map((product, index) => (
+                    : displayProducts.map((product, index) => (
                         <div
                           key={index}
-                          className="bg-white p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-sky-200"
+                          className="bg-white p-4 sm:p-6 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-sky-200 flex flex-col"
                         >
-                          <div>
+                          <div className="w-full h-48 flex items-center justify-center overflow-hidden mb-4">
                             <img
                               src={product.image}
                               alt={product.name}
@@ -295,55 +263,52 @@ export default function PRO() {
                               loading="lazy"
                             />
                           </div>
-                          <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">
-                            {product.name}
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                            {product.description}
-                          </p>
-                          <div className="flex flex-col sm:flex-row gap-2">
-                            <a
-                              href={product.knowmore}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1"
-                            >
-                              <button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
-                                Know More
-                              </button>
-                            </a>
-                            <a
-                              href={product.catalogue}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1"
-                            >
-                              <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
-                                Catalogue
-                              </button>
-                            </a>
+                          <div className="flex-1 flex flex-col justify-between">
+                            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                              {product.description}
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                              <a
+                                href={product.knowmore}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1"
+                              >
+                                <button className="bg-sky-600 text-white px-4 py-2 rounded-lg">
+                                  Know More
+                                </button>
+                              </a>
+                              <a
+                                href={product.catalogue}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1"
+                              >
+                                <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
+                                  Catalogue
+                                </button>
+                              </a>
+                            </div>
                           </div>
                         </div>
                       ))}
                 </div>
 
-                {/* Load More Button for mobile */}
                 {!selectedCategory &&
                   !showAllProducts &&
-                  allProducts.length > 4 && (
+                  allProducts.length > 5 && (
                     <div className="text-center mt-8">
                       <button
                         onClick={() => setShowAllProducts(true)}
                         className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-lg font-medium transition-colors duration-200 active:scale-95"
                       >
-                        View All Products ({allProducts.length - 4} more)
+                        View All Products ({allProducts.length - 5} more)
                       </button>
                     </div>
                   )}
               </div>
             </div>
 
-            {/* Enhanced Recommendations Section */}
             {!selectedCategory && (
               <div className="mt-12 bg-gradient-to-r from-sky-50 to-blue-50 p-6 sm:p-8 rounded-2xl border border-sky-100">
                 <div className="text-center mb-8">
@@ -354,14 +319,14 @@ export default function PRO() {
                     Handpicked products based on popular choices
                   </p>
                 </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                   {allProducts.slice(0, 4).map((product, index) => (
                     <div
                       key={index}
-                      className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-white hover:border-sky-200"
+                      className="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-white hover:border-sky-200 flex flex-col h-full"
+                      style={{ minHeight: "380px" }}
                     >
-                      <div>
+                      <div className="w-full h-40 flex items-center justify-center overflow-hidden mb-3">
                         <img
                           src={product.image}
                           alt={product.name}
@@ -372,18 +337,26 @@ export default function PRO() {
                       <h3 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
                         {product.name}
                       </h3>
-                      <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
-                        {product.description || "No description available."}
-                      </p>
-                      <div className="space-y-2">
-                        <Link to={product.link} className="block">
-                          <button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
-                            Know More
-                          </button>
-                        </Link>
-                        <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
-                          Catalogue
-                        </button>
+                      <div className="flex flex-col flex-1 justify-between">
+                        <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
+                          {product.description || "No description available."}
+                        </p>
+                        <div className="flex flex-col gap-2 mt-auto">
+                          <Link to={product.link} className="block">
+                            <button className="w-full bg-sky-600 hover:bg-sky-700 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
+                              Know More
+                            </button>
+                          </Link>
+                          <a
+                            href={product.catalogue}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
+                              Catalogue
+                            </button>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -393,7 +366,6 @@ export default function PRO() {
           </div>
         </div>
 
-        {/* Bottom gradient */}
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -407,7 +379,6 @@ export default function PRO() {
           />
         </div>
       </div>
-
       <Footer />
     </div>
   );

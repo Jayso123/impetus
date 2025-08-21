@@ -227,3 +227,24 @@ const Footer = () => {
 };
 
 export default Footer;
+
+/* <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Subject
+                      </label>
+                      <select
+                        name="subject"
+                        value={form.subject}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
+                      >
+                        <option value="general">General Inquiry</option>
+                        <option value="lubricants">
+                          Lubricants & Cutting Oils
+                        </option>
+                        <option value="measuring">Measuring Instruments</option>
+                        <option value="storage">Storage Solutions</option>
+                        <option value="tools">Hand Tools</option>
+                        <option value="support">Technical Support</option>
+                      </select>
+                    </div> */

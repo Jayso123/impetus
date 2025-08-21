@@ -6,8 +6,8 @@ import bg3 from "../assets/bg3.png";
 import bg4 from "../assets/bg4.png";
 import about from "../assets/about.png";
 import CountUp from "react-countup";
-import Navbar from "../Components/Navbar";
-import Footer from "../Components/Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const AboutUs = () => {
   const [aboutData, setAboutData] = useState({

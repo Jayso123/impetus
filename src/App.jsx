@@ -1,43 +1,57 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PRO from "./Components/PRO";
+import Products from "./Components/Products";
 import Career from "./Components/Career";
 import TryNav from "./Components/TryNav";
-// import Admin from "./Components/Admin/Admin";
+import ScrollToTop from "./Components/ScrollToTop";
 import Contact from "./Components/Contact";
+import ProductDetails from "./Components/ProductDetails";
 import AboutUs from "./Components/About";
 import SmoothFollowCursor from "./Components/SmoothFollowCursor";
-// import ScrollAnimation from "./Components/Bin/ScrollAnimation";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768); // only show on tablet/desktop
+    };
+
+    handleResize(); // run once on load
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <>
-      {/* <Contact /> */}
-      {/* <div className="min-h-screen w-full flex items-center justify-center"> */}
-      <SmoothFollowCursor
-        dotColor="rgba(20, 103, 143, 1)"
-        borderColor="rgba(20, 103, 143, 1)"
-        dotSize={10}
-        borderSize={30}
-        hoverBorderSize={50}
-        dotSpeed={0.4}
-        borderSpeed={0.15}
-        dotOpacity={1}
-        borderOpacity={0.8}
-        borderWidth={3}
-      />
+      {/* Render only for desktop */}
+      {isDesktop && (
+        <SmoothFollowCursor
+          dotColor="rgba(20, 103, 143, 1)"
+          borderColor="rgba(20, 103, 143, 1)"
+          dotSize={10}
+          borderSize={30}
+          hoverBorderSize={50}
+          dotSpeed={0.4}
+          borderSpeed={0.15}
+          dotOpacity={1}
+          borderOpacity={0.8}
+          borderWidth={3}
+        />
+      )}
+
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<TryNav />} />
-          <Route path="/Pro" element={<PRO />} />
-          <Route path="Contact" element={<Contact />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:productUName" element={<ProductDetails />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
-          {/* <Route path="/Admin" element={<Admin />} /> */}
-          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
         </Routes>
       </Router>
-      {/* </div> */}
-      {/* {/* <ScrollAnimation /> */}
     </>
   );
 }

@@ -3,36 +3,44 @@
         "category": "CNC CUTTING TOOLS",
         "product": [
             {
-                "name": "HOFFMAN",
-                "image": "/hoffman.png",
+                "name": "CERATIZIT",
+                "image": "/ceratizit.png",
+                "description": "Leading company having origin in Europe which provides Total solution for Milling, Turning, Rough boring, Finish Boring, Reaming Drilling, Tapping, Tool holding, Work holding.",
+                "Uname": "ceratizit-cnc-tools",
+                "knowmore": "https://cuttingtools.ceratizit.com/in/en.html",
+                "catalogue": "https://cuttingtools.ceratizit.com/in/en/download.html"
+            },
+            {
+                "name": "Achteck",
+                "image": "/achteck.jpg",
                 "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
-                "link": "/Pro",
-                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/",
-                "catalogue": "https://www.hoffmanngroupusa.com/catalog/"
+                "Uname": "achteck-cnc-tools",
+                "knowmore": "https://www.achtecktool.com/en/",
+                "catalogue": "https://www.achtecktool.com/en/ProductManual.aspx?class1=7&class2=26"
             },
             {
                 "name": "CAREMEX",
                 "image": "/carmex.png",
-                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
-                "link": "/Pro",
+                "description": "Manufacturing High quality tools for Threading, Thread milling, Solid Carbide Endmills, Small part machining.",
+                "Uname": "carmex-cnc-tools",
                 "knowmore": "https://carmex.com/",
                 "catalogue": "https://carmex.com/catalogs/"
             },
             {
                 "name": "Totem",
                 "image": "/tottem.png",
-                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
-                "link": "/Pro",
-                "knowmore": "https://carmex.com/",
-                "catalogue": "https://carmex.com/catalogs/"
+                "description": "Manufacturer of HSS Taps, Drills, Dies, high performance Solid Carbide Endmills & Drills.",
+                "Uname": "totem-cnc-tools",
+                "knowmore": "https://www.totem-forbes.com/milling-tools-end-mill/",
+                "catalogue": "https://www.totem-forbes.com/catalogue-2/"
             },
             {
-                "name": "CERATIZIT",
-                "image": "/ceratizit.png",
-                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
-                "link": "/Pro",
-                "knowmore": "https://carmex.com/",
-                "catalogue": "https://carmex.com/catalogs/"
+                "name": "HOFFMAN",
+                "image": "/hoffman.png",
+                "description": "Catalogue house having one stop solutions from 'Garant' and 'Holex' brand apart from other manufacturers acros the globe.",
+                "Uname": "hoffman-cnc-tools",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Machining/Milling/Shoulder-mills/Modular-shoulder-mills/c/10-04-01-02-00?tId=800",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
@@ -40,22 +48,44 @@
         "category": "TAPS",
         "product": [
             {
-                "name": "TOTEM",
-                "image": "/tottem.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "EMKAY",
+                "image": "/Emkay.png",
+                "description": "Largest Indian company having manufacturing plants for High quality Taps.",
+                "Uname": "emkay-taps",
+                "knowmore": "http://emkaytools.com/",
+                "catalogue": "https://emkaytools.com/downloads/"
             },
             {
-                "name": "EMKAY",
-                "image": "/Emkay",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "CERATIZIT",
+                "image": "/ceratizit.png",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
+                "Uname": "ceratizit-taps",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
+            },
+            {
+                "name": "BILZ",
+                "image": "/Bilz.png",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
+                "Uname": "bilz-taps",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
+            },
+            {
+                "name": "TOTEM",
+                "image": "/tottem.png",
+                "description": "Manufacturer of HSS Taps, Drills, Dies, high performance Solid Carbide Endmills & Drills.",
+                "Uname": "totem-taps",
+                "knowmore": "https://www.totem-forbes.com/hss-epm-machine-taps/",
+                "catalogue": "https://www.totem-forbes.com/catalogue-2/"
             },
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Catalogue house having one stop solutions from 'Garant' and 'Holex' brand apart from other manufacturers acros the globe.",
+                "Uname": "hoffman-taps",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Machining/Thread-machining/Taps/c/10-02-01-00-00?tId=800",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
@@ -65,31 +95,47 @@
             {
                 "name": "BILZ",
                 "image": "/Bilz.png",
-                "link": "/Pro",
-                "description": "BILZ tool holders ensure secure clamping, high concentricity, and reliable performance in demanding applications."
-            },
-            {
-                "name": "HOFFMAN",
-                "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "HOFFMAN precision tool holders are optimized for rigidity and accuracy, ideal for high-speed CNC operations."
+                "description": "German company who specializes in manufacturing Tool holding including Synchro-tapping chuck.",
+                "Uname": "bilz-tool-holding",
+                "knowmore": "https://www.bilz.com/in/",
+                "catalogue": "https://www.bilz.com/in/service/download-area/catalogs-and-flyer"
             },
             {
                 "name": "CERATIZIT",
                 "image": "/ceratizit.png",
-                "link": "/Pro",
-                "description": "CERATIZIT offers innovative tool holding solutions for advanced metal cutting, combining technology and strength."
+                "description": "Full range of Tool holding i.e; Face mill Arbor, Collet Chuck, Centro-P holder, Hydrogrip Chucks etc.",
+                "Uname": "ceratizit-tool-holding",
+                "knowmore": "https://cuttingtools.ceratizit.com/in/en.html",
+                "catalogue": "https://cuttingtools.ceratizit.com/in/en/download.html"
+            },
+            {
+                "name": "HOFFMAN",
+                "image": "/hoffman.png",
+                "description": "Catalogue house having one stop solutions from 'Garant' and 'Holex' brand apart from other manufacturers acros the globe.",
+                "Uname": "hoffman-tool-holding",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/v2/categorysearch/filter?term=&categoryId=30&selectedAssortment=&tId=901&sort=&HOF000120_STRING=Arbor%20adapter&HOF000120_STRING=Checking%20mandrel&HOF000120_STRING=Collet%20chuck&sort=category-relevance&sort=category-relevance&&&_=1686129635474",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
     {
-        "category": "Boaring Solutions",
+        "category": "Boring Solution",
         "product": [
             {
                 "name": "D'adrea",
-                "image": "/D'area.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "image": "/Dadrea.png",
+                "description": "Biggest and most versitle company in field of Finish Boring as well as Rough boring.",
+                "Uname": "dadrea-boring",
+                "knowmore": "https://www.dandrea.com/en/modulhard-andrea-mhd.html",
+                "catalogue": "https://www.dandrea.com/en/download.html"
+            },
+            {
+                "name": "CERATIZIT",
+                "image": "/ceratizit.png",
+                "description": "Catalogue house having one stop solutions from 'Garant' and 'Holex' brand apart from other manufacturers acros the globe.",
+                "Uname": "ceratizit-boring",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://carmex.com/catalogs/"
             }
         ]
     },
@@ -97,10 +143,12 @@
         "category": "Tool Presetter",
         "product": [
             {
-                "name": "ELBA",
-                "image": "/Elba.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "ELBO",
+                "image": "/Elbo.png",
+                "description": "Reduce your down time on machine and rejection by using most versatile tool presetter from Italy.",
+                "Uname": "elbo-tool-presetter",
+                "knowmore": "https://www.elbocontrolli.it/en/",
+                "catalogue": "https://www.elbocontrolli.it/en/presetter"
             }
         ]
     },
@@ -110,8 +158,10 @@
             {
                 "name": "PRO Tools",
                 "image": "/Protools.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Innovative solutions in field of Special / Custom tools, who can design and manufacture tool based on component drawing.",
+                "Uname": "pro-tools-special",
+                "knowmore": "https://www.protools.co.in/",
+                "catalogue": "https://www.protools.co.in/"
             }
         ]
     },
@@ -121,14 +171,18 @@
             {
                 "name": "Lubgraf",
                 "image": "/Lubgraf.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Company having solution for Cutting tools i.e; Mineral based oil, Semi-synthetic Oil, Synthetic Oil, Tapping Oil to improve productivity and reduce cost.",
+                "Uname": "lubgraf-cutting-tools",
+                "knowmore": "https://www.lubgrafsynoils.com/high_performance_metal_working_fluids",
+                "catalogue": "https://www.lubgrafsynoils.com/high_performance_metal_working_fluids"
             },
             {
-                "name": "Callington",
-                "image": "/Callington.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "Master Fluids",
+                "image": "/master-fluid.png",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
+                "Uname": "master-fluids-cutting-tools",
+                "knowmore": "",
+                "catalogue": ""
             }
         ]
     },
@@ -138,25 +192,31 @@
             {
                 "name": "Lubgraf",
                 "image": "/Lubgraf.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Total solution for every process industries i.e; Sugar, Glass, Paper, Tyre, Steel forging, Steel Rolling for High-temperature Grease and Speciality oil.",
+                "Uname": "lubgraf-lubricants-grease",
+                "knowmore": "https://www.lubgrafsynoils.com/index.php",
+                "catalogue": "https://www.lubgrafsynoils.com/index.php"
             }
         ]
     },
     {
-        "category": "WORK HALDING",
+        "category": "WORK HOLDING",
         "product": [
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Total solution from Best of companies in world in field of Work holding i.e; Vice, Chucks, tombstone etc.",
+                "Uname": "hoffman-work-holding",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Clamping-technology/Vices/c/36?tId=388",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             },
             {
                 "name": "CERATIZIT",
                 "image": "/ceratizit.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Unique solution for Machine Vice, Tombstone etc to ensure component has best grip.",
+                "Uname": "ceratizit-work-holding",
+                "knowmore": "https://cuttingtools.ceratizit.com/in/en/shop-pages/search/search-result-products.html?nav=true#category/JTI0RVNLLTExLUEwNi1CMDIq#nav",
+                "catalogue": "https://cuttingtools.ceratizit.com/in/en/download.html"
             }
         ]
     },
@@ -164,16 +224,28 @@
         "category": "METROLOGY",
         "product": [
             {
-                "name": "HOFFMAN",
-                "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "SYSTEMS",
+                "image": "/Systems.png",
+                "description": "Leading supplier in India for Thread plug gauge, Thread Ring gauge.",
+                "Uname": "systems-metrology",
+                "knowmore": "https://systemgauge.in/",
+                "catalogue": "https://systemgauge.in/"
             },
             {
-                "name": "CERATIZIT",
-                "image": "/ceratizit.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "name": "MAHR",
+                "image": "/Mahr.png",
+                "description": "Cult name in field of Metrology from Germany who manufacturers Contouring machine, 2D Height gauge, Surface roughness tester and many more.",
+                "Uname": "mahr-metrology",
+                "knowmore": "https://metrology.mahr.com/en-int/",
+                "catalogue": "https://metrology.mahr.com/en-int/"
+            },
+            {
+                "name": "HOFFMAN",
+                "image": "/hoffman.png",
+                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
+                "Uname": "hoffman-metrology",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Measurement-technology/c/994?tId=833",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
@@ -183,25 +255,18 @@
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Best European quality in hand tools including Torque wrench, Keys, Spanners, Hammers etc.",
+                "Uname": "hoffman-hand-tools",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Hand-tools/c/60-00-00-00-00?tId=165",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             },
             {
                 "name": "Kendo",
                 "image": "/Kendo.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
-            }
-        ]
-    },
-    {
-        "category": "MARKING",
-        "product": [
-            {
-                "name": "Bradma",
-                "image": "/Bradma.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Versatile and cost effective solution for all general purpose hand tools.",
+                "Uname": "kendo-hand-tools",
+                "knowmore": "https://www.kendo.com/",
+                "catalogue": "https://www.kendo.com/"
             }
         ]
     },
@@ -211,8 +276,10 @@
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Only company in world having Safety certiciate for Tool trolleys and other storage systems.",
+                "Uname": "hoffman-work-station-storage",
+                "knowmore": "https://carmex.com/",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
@@ -222,8 +289,10 @@
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Grinding and cut wheels with Best safety standard from Germany to ensure effectivenesse.",
+                "Uname": "hoffman-grinding-cutting",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Grinding-and-cutting/c/995?tId=352",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     },
@@ -233,8 +302,10 @@
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
-                "link": "/Pro",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life."
+                "description": "Robust cable reel of unbreakable plastic. Easy to roll up and unroll. With 4-way multiple sockets and thermal shut-off.",
+                "Uname": "hoffman-factory-equipment",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Factory-equipment/c/08-00-00-00-00?tId=252",
+                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
     }

@@ -12,11 +12,28 @@ import {
   FaPlay,
 } from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
-import tool1 from "../assets/tool1.jpg";
-import tool2 from "../assets/tool2.jpg";
-import tool3 from "../assets/tool3.jpg";
+import tool1 from "../assets/archteck1.jpg";
+import tool2 from "../assets/archteck3.jpg";
+import tool3 from "../assets/cera1.jpg";
+import tool4 from "../assets/cera2.jpg";
+import tool5 from "../assets/carmex1.jpg";
+import tool6 from "../assets/carmex2.jpg";
+import tool7 from "../assets/Emkaypp1.png";
+import tool8 from "../assets/Emkaypp6.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Slider from "react-slick";
+
+const settings = {
+  dots: false,
+  infinite: true,
+  speed: 800,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+};
 
 export default function TryNav() {
   return (
@@ -49,9 +66,9 @@ export default function TryNav() {
                 {/* Clean Hero Text */}
                 <div className="space-y-6">
                   <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight animate-slide-up">
-                    <span className="block text-sky-600 mb-2">IMPETUS</span>
+                    <span className="block text-sky-600 mb-2">Impetus</span>
                     <span className="block text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl">
-                      TECHNO SOLUTIONS
+                      Techno Solutions
                     </span>
                   </h1>
                 </div>
@@ -78,7 +95,7 @@ export default function TryNav() {
                     About Us
                   </NavLink>
                   <NavLink
-                    to="/Pro"
+                    to="/Products"
                     className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-sky-600 bg-white border-2 border-sky-600 rounded-lg hover:bg-sky-50 transform hover:-translate-y-1 transition-all duration-300 group"
                   >
                     View Products
@@ -108,70 +125,159 @@ export default function TryNav() {
                 {/* Main Hero Image */}
                 <div className="relative">
                   <div className="aspect-[6/3] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-sky-100 to-sky-200">
-                    <img
-                      src={tool1}
-                      alt="Industrial manufacturing facility"
-                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                    />
+                    <Slider {...settings} className="h-full rounded-2xl">
+                      {/* <img
+                        src={tool1}
+                        alt="Industrial manufacturing facility"
+                        className="w-auto h-auto object-none hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool2}
+                        alt="Industrial tools and equipment"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      /> */}
+                      {/* <img
+                        src={tool3}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      /> */}
+                      <img
+                        src={tool4}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      {/* <img
+                        src={tool5}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool6}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      /> */}
+                      <img
+                        src={tool7}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool8}
+                        alt="Precision measuring instruments"
+                        className="w-auto h-auto  object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </Slider>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
-
-                  {/* Floating Play Button */}
-
-                  {/* Floating Card 1 - Tools */}
+                  {/* Floating Cards (unchanged) */}
+                  {/* Floating Card 1 - Tools */}{" "}
                   <div className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg p-4 transform hover:-translate-y-2 transition-all duration-300 animate-float">
+                    {" "}
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                        <FaTools className="w-6 h-6 text-orange-600" />
-                      </div>
+                      {" "}
+                      <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                        {" "}
+                        <FaTools className="w-6 h-6 text-orange-600" />{" "}
+                      </div>{" "}
                       <div>
+                        {" "}
                         <p className="font-semibold text-gray-900 text-sm">
-                          Precision Tools
-                        </p>
+                          {" "}
+                          Precision Tools{" "}
+                        </p>{" "}
                         <p className="text-xs text-gray-500">
-                          Professional Grade
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Floating Card 2 - Measuring */}
-                  <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 transform hover:-translate-y-2 transition-all duration-300 animate-float-delayed">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                        <FaRuler className="w-6 h-6 text-green-600" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-gray-900 text-sm">
-                          Measuring Instruments
-                        </p>
-                        <p className="text-xs text-gray-500">High Precision</p>
-                      </div>
-                    </div>
+                          {" "}
+                          Professional Grade{" "}
+                        </p>{" "}
+                      </div>{" "}
+                    </div>{" "}
                   </div>
                 </div>
-
+                {/* Floating Card 2 - Measuring */}{" "}
+                <div className="absolute -bottom-18 z-10 -right-4 bg-white rounded-xl shadow-lg p-4 transform hover:-translate-y-2 transition-all duration-300 animate-float-delayed">
+                  {" "}
+                  <div className="flex items-center gap-3">
+                    {" "}
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                      {" "}
+                      <FaRuler className="w-6 h-6 text-green-600" />{" "}
+                    </div>{" "}
+                    <div>
+                      {" "}
+                      <p className="font-semibold text-gray-900 text-sm">
+                        {" "}
+                        Measuring Instruments{" "}
+                      </p>{" "}
+                      <p className="text-xs text-gray-500">
+                        High Precision
+                      </p>{" "}
+                    </div>{" "}
+                  </div>{" "}
+                </div>
                 {/* Secondary Images Grid */}
-                <div className="grid grid-cols-2 gap-4 mt-6">
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                    <img
-                      src={tool2}
-                      alt="Industrial tools and equipment"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <Slider {...settings}>
+                      <img
+                        src={tool3}
+                        alt="Precision instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+
+                      <img
+                        src={tool8}
+                        alt="Manufacturing"
+                        className="w-auto h-auto pt-16 object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool5}
+                        alt="Manufacturing"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool6}
+                        alt="Manufacturing"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool7}
+                        alt="Manufacturing"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </Slider>
                   </div>
-                  <div className="aspect-square rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-1 transition-all duration-300">
-                    <img
-                      src={tool3}
-                      alt="Precision measuring instruments"
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
+                  <div className="rounded-lg overflow-hidden shadow-lg">
+                    <Slider {...settings}>
+                      <img
+                        src={tool6}
+                        alt="Industrial tools"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+
+                      <img
+                        src={tool5}
+                        alt="Industrial tools"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool8}
+                        alt="Industrial tools"
+                        className="w-auto h-auto pt-16 object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool7}
+                        alt="Industrial tools"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                      <img
+                        src={tool3}
+                        alt="Precision instruments"
+                        className="w-auto h-auto object-cover hover:scale-105 transition-transform duration-500"
+                      />
+                    </Slider>
                   </div>
                 </div>
-
-                {/* Background Decorative Elements */}
-                <div className="absolute -z-10 top-8 right-8 w-32 h-32 bg-sky-200 rounded-full opacity-20 blur-2xl"></div>
-                <div className="absolute -z-10 bottom-8 left-8 w-24 h-24 bg-purple-200 rounded-full opacity-30 blur-xl"></div>
+                {/* Background Decorative Elements (unchanged) */}
               </div>
             </div>
           </div>
@@ -327,7 +433,7 @@ export default function TryNav() {
                   Get In Touch
                 </NavLink>
                 <NavLink
-                  to="/Pro"
+                  to="/Products"
                   className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-700 bg-white border-2 border-gray-300 rounded-lg hover:border-gray-400 transform hover:-translate-y-1 transition-all duration-300"
                 >
                   Browse Products

@@ -13,12 +13,15 @@ import {
   Linkedin,
   Twitter,
   Facebook,
+  X,
 } from "lucide-react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
-const CareerPage = () => {
+const Career = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedRole, setSelectedRole] = useState(null);
 
   const jobCategories = [
     {
@@ -337,7 +340,13 @@ const CareerPage = () => {
                       Posted {role.posted}
                     </span>
                   </div>
-                  <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors mt-4 md:mt-0">
+                  <button
+                    onClick={() => {
+                      setSelectedRole(role);
+                      setShowModal(true);
+                    }}
+                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors mt-4 md:mt-0"
+                  >
                     Apply Now
                   </button>
                 </div>
@@ -439,10 +448,108 @@ const CareerPage = () => {
         </div>
       </div>
 
+      {showModal && selectedRole && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+          <div className="bg-white w-full max-w-lg rounded-lg shadow-lg p-6 relative">
+            {/* Close button */}
+            <button
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+              onClick={() => setShowModal(false)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <h2 className="text-2xl font-bold mb-4">
+              Apply for {selectedRole.title}
+            </h2>
+
+            <form className="space-y-4">
+              {/* Pre-filled fields */}
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Job Title
+                </label>
+                <input
+                  type="text"
+                  name="jobTitle"
+                  value={selectedRole.title}
+                  readOnly
+                  className="w-full mt-1 p-2 border rounded bg-gray-100"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={selectedRole.location}
+                  readOnly
+                  className="w-full mt-1 p-2 border rounded bg-gray-100"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Department
+                </label>
+                <input
+                  type="text"
+                  name="department"
+                  value={selectedRole.department}
+                  readOnly
+                  className="w-full mt-1 p-2 border rounded bg-gray-100"
+                />
+              </div>
+              {/* Applicant fields */}
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  className="w-full mt-1 p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  className="w-full mt-1 p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block text-gray-700 text-sm font-medium">
+                  Resume
+                </label>
+                <input
+                  type="file"
+                  name="resume"
+                  accept=".pdf,application/pdf"
+                  className="w-full mt-1 p-2 border rounded"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              >
+                Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Footer */}
       <Footer />
     </div>
   );
 };
 
-export default CareerPage;
+export default Career;
