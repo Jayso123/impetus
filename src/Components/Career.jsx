@@ -6,19 +6,12 @@ import Navbar from "./Navbar";
 import axios from "axios";
 
 const Career = () => {
+  // State
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [selectedRole, setSelectedRole] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    coverLetter: "",
-    experience: "",
-  });
 
-  // single state for form
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,24 +20,26 @@ const Career = () => {
     coverLetter: "",
     experience: "",
   });
-  const [resume, setResume] = useState(null);
 
   const navigate = useNavigate();
 
   // Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const submissionData = new FormData();
 
+    const submissionData = new FormData();
     Object.keys(formData).forEach((key) => {
       submissionData.append(key, formData[key]);
     });
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:3000/api/career", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      await axios.post(
+        "https://impetustechno.com/api/career", // ✅ normal URL
+        submissionData,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+
       alert("Application sent successfully!");
       setShowModal(false);
       setFormData({
