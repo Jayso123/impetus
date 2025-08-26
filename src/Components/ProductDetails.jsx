@@ -117,12 +117,11 @@ export default function ProductDetails() {
                         </li>
                         <li className="text-gray-400">/</li>
                         <li>
-                          <button
-                            onClick={handleHomeClick}
-                            className="hover:text-sky-600 transition-colors font-medium"
-                          >
-                            Products
-                          </button>
+                          <Link to={"/Products"}>
+                            <button className="hover:text-sky-600 transition-colors font-medium">
+                              Products
+                            </button>
+                          </Link>
                         </li>
                         <li className="text-gray-400">/</li>
                         <li className="text-gray-900 font-semibold">
@@ -194,15 +193,14 @@ export default function ProductDetails() {
                             >
                               <div className="pl-6 pr-3 pb-3">
                                 <ul className="space-y-2">
-                                  {categoryItem.product?.map((p, idx) => (
+                                  {categoryItem.product?.map((product, idx) => (
                                     <li key={idx}>
                                       <Link
-                                        to={`/products/${encodeURIComponent(
-                                          p.Uname
+                                        to={`/${encodeURIComponent(
+                                          product.Uname
                                         )}`}
-                                        className="text-gray-600 hover:text-sky-600 block py-1 text-sm transition-colors"
                                       >
-                                        {p.name}
+                                        {product.name}
                                       </Link>
                                     </li>
                                   ))}

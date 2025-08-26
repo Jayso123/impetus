@@ -1,32 +1,30 @@
 import "./App.css";
+import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Products from "./Components/Products";
 import Career from "./Components/Career";
 import TryNav from "./Components/TryNav";
-import ScrollToTop from "./Components/ScrollToTop";
+// import Admin from "./Components/Admin/Admin";
 import Contact from "./Components/Contact";
-import ProductDetails from "./Components/ProductDetails";
 import AboutUs from "./Components/About";
+import ProductDetails from "./Components/ProductDetails";
 import SmoothFollowCursor from "./Components/SmoothFollowCursor";
-import { useEffect, useState } from "react";
+import WhatsAppButton from "./Components/WhatsAppButton";
+import ScrollToTop from "./Components/ScrollToTop"; // 👈 new component
 
 function App() {
-  const [isDesktop, setIsDesktop] = useState(true);
+  const [phoneNumber, setPhoneNumber] = useState("+919081399901");
+  const [message, setMessage] = useState(
+    "Hello! I'm interested in your services."
+  );
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768); // only show on tablet/desktop
-    };
-
-    handleResize(); // run once on load
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  // detect mobile (basic check)
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <>
-      {/* Render only for desktop */}
-      {isDesktop && (
+      {/* Smooth cursor only on desktop */}
+      {!isMobile && (
         <SmoothFollowCursor
           dotColor="rgba(20, 103, 143, 1)"
           borderColor="rgba(20, 103, 143, 1)"
@@ -42,16 +40,21 @@ function App() {
       )}
 
       <Router>
+        {/* scrolls to top on every route change */}
         <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<TryNav />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:productUName" element={<ProductDetails />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/:productUName" element={<ProductDetails />} />
+          <Route path="/Contact" element={<Contact />} />
           <Route path="/career" element={<Career />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
+          {/* <Route path="/Admin" element={<Admin />} /> */}
+          <Route path="/AboutUs" element={<AboutUs />} />
         </Routes>
       </Router>
+
+      <WhatsAppButton phoneNumber={phoneNumber} message={message} />
     </>
   );
 }

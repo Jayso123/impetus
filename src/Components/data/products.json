@@ -11,12 +11,28 @@
                 "catalogue": "https://cuttingtools.ceratizit.com/in/en/download.html"
             },
             {
-                "name": "Achteck",
+                "name": "ACHTECK",
                 "image": "/achteck.jpg",
                 "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
                 "Uname": "achteck-cnc-tools",
                 "knowmore": "https://www.achtecktool.com/en/",
-                "catalogue": "https://www.achtecktool.com/en/ProductManual.aspx?class1=7&class2=26"
+                "catalogue": "https://www.achtecktool.com/en/ProductList.aspx?class1=3&class2=14"
+            },
+            {
+                "name": "CARBOTEC",
+                "image": "/Carbotec.png",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "Uname": "carbotec-cnc-tools",
+                "knowmore": "https://carbotecindia.com",
+                "catalogue": "https://carbotecindia.com/products.html#"
+            },
+            {
+                "name": "ECHAIN",
+                "image": "/Echain.jpg",
+                "description": "Premium German-engineered CNC cutting tools offering durability and precision for high-performance machining.",
+                "Uname": "Echain-cnc-tools",
+                "knowmore": "https://www.echaintool.com/index.aspx?lang=US",
+                "catalogue": "https://www.echaintool.com/page/product/index.aspx?lang=US"
             },
             {
                 "name": "CAREMEX",
@@ -27,7 +43,7 @@
                 "catalogue": "https://carmex.com/catalogs/"
             },
             {
-                "name": "Totem",
+                "name": "TOTEM",
                 "image": "/tottem.png",
                 "description": "Manufacturer of HSS Taps, Drills, Dies, high performance Solid Carbide Endmills & Drills.",
                 "Uname": "totem-cnc-tools",
@@ -54,22 +70,6 @@
                 "Uname": "emkay-taps",
                 "knowmore": "http://emkaytools.com/",
                 "catalogue": "https://emkaytools.com/downloads/"
-            },
-            {
-                "name": "CERATIZIT",
-                "image": "/ceratizit.png",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
-                "Uname": "ceratizit-taps",
-                "knowmore": "https://carmex.com/",
-                "catalogue": "https://carmex.com/catalogs/"
-            },
-            {
-                "name": "BILZ",
-                "image": "/Bilz.png",
-                "description": "TOTEM high-speed steel taps provide superior threading performance with excellent chip removal and longer tool life.",
-                "Uname": "bilz-taps",
-                "knowmore": "https://carmex.com/",
-                "catalogue": "https://carmex.com/catalogs/"
             },
             {
                 "name": "TOTEM",
@@ -109,6 +109,14 @@
                 "catalogue": "https://cuttingtools.ceratizit.com/in/en/download.html"
             },
             {
+                "name": "CARBOTEC",
+                "image": "/carbotec.png",
+                "description": "Full range of Tool holding i.e; Face mill Arbor, Collet Chuck, Centro-P holder, Hydrogrip Chucks etc.",
+                "Uname": "carbotec-tool-holding",
+                "knowmore": "https://carbotecindia.com",
+                "catalogue": "https://carbotecindia.com/products.html#"
+            },
+            {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
                 "description": "Catalogue house having one stop solutions from 'Garant' and 'Holex' brand apart from other manufacturers acros the globe.",
@@ -122,12 +130,20 @@
         "category": "Boring Solution",
         "product": [
             {
-                "name": "D'adrea",
+                "name": "D'ADREA",
                 "image": "/Dadrea.png",
                 "description": "Biggest and most versitle company in field of Finish Boring as well as Rough boring.",
                 "Uname": "dadrea-boring",
                 "knowmore": "https://www.dandrea.com/en/modulhard-andrea-mhd.html",
                 "catalogue": "https://www.dandrea.com/en/download.html"
+            },
+            {
+                "name": "DINE",
+                "image": "/Dine.png",
+                "description": "Biggest and most versitle company in field of Finish Boring as well as Rough boring.",
+                "Uname": "dine-boring",
+                "knowmore": "https://dine.co.kr/en/",
+                "catalogue": "https://dine.co.kr/upload/★2025%20종합카탈로그%20영문(개정판)_아웃라인O_.pdf"
             },
             {
                 "name": "CERATIZIT",
@@ -166,10 +182,10 @@
         ]
     },
     {
-        "category": "CUTTING TOOLS",
+        "category": "CUTTING OIL",
         "product": [
             {
-                "name": "Lubgraf",
+                "name": "LUBGRAF",
                 "image": "/Lubgraf.png",
                 "description": "Company having solution for Cutting tools i.e; Mineral based oil, Semi-synthetic Oil, Synthetic Oil, Tapping Oil to improve productivity and reduce cost.",
                 "Uname": "lubgraf-cutting-tools",
@@ -190,7 +206,7 @@
         "category": "LUBRICANTS & GREASE",
         "product": [
             {
-                "name": "Lubgraf",
+                "name": "LUBGRAF",
                 "image": "/Lubgraf.png",
                 "description": "Total solution for every process industries i.e; Sugar, Glass, Paper, Tyre, Steel forging, Steel Rolling for High-temperature Grease and Speciality oil.",
                 "Uname": "lubgraf-lubricants-grease",
@@ -261,7 +277,7 @@
                 "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             },
             {
-                "name": "Kendo",
+                "name": "KENDO",
                 "image": "/Kendo.png",
                 "description": "Versatile and cost effective solution for all general purpose hand tools.",
                 "Uname": "kendo-hand-tools",
@@ -271,14 +287,14 @@
         ]
     },
     {
-        "category": "WORK STATION & STORAGE",
+        "category": "Storage Systems",
         "product": [
             {
                 "name": "HOFFMAN",
                 "image": "/hoffman.png",
                 "description": "Only company in world having Safety certiciate for Tool trolleys and other storage systems.",
                 "Uname": "hoffman-work-station-storage",
-                "knowmore": "https://carmex.com/",
+                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Workstations-and-storage/c/999?tId=518",
                 "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]
@@ -292,19 +308,6 @@
                 "description": "Grinding and cut wheels with Best safety standard from Germany to ensure effectivenesse.",
                 "Uname": "hoffman-grinding-cutting",
                 "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Grinding-and-cutting/c/995?tId=352",
-                "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
-            }
-        ]
-    },
-    {
-        "category": "FACTORY EQUIPMENT",
-        "product": [
-            {
-                "name": "HOFFMAN",
-                "image": "/hoffman.png",
-                "description": "Robust cable reel of unbreakable plastic. Easy to roll up and unroll. With 4-way multiple sockets and thermal shut-off.",
-                "Uname": "hoffman-factory-equipment",
-                "knowmore": "https://www.hoffmann-group.com/IN/en/hin/Factory-equipment/c/08-00-00-00-00?tId=252",
                 "catalogue": "https://www.hoffmann-group.com/IN/en/hin/services/flip-catalogue/e/66221/?tId=455"
             }
         ]

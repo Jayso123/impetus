@@ -1,27 +1,84 @@
 import React, { useState } from "react";
-import {
-  ChevronRight,
-  Users,
-  Heart,
-  Globe,
-  Award,
-  MapPin,
-  Clock,
-  DollarSign,
-  Mail,
-  Phone,
-  Linkedin,
-  Twitter,
-  Facebook,
-  X,
-} from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Users, Heart, Globe, Award, MapPin, Clock, X } from "lucide-react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import axios from "axios";
 
 const Career = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [showModal, setShowModal] = useState(false);
   const [selectedRole, setSelectedRole] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    coverLetter: "",
+    experience: "",
+  });
+
+  // single state for form
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    resume: null,
+    coverLetter: "",
+    experience: "",
+  });
+  const [resume, setResume] = useState(null);
+
+  const navigate = useNavigate();
+
+  // Submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const submissionData = new FormData();
+
+    Object.keys(formData).forEach((key) => {
+      submissionData.append(key, formData[key]);
+    });
+
+    try {
+      setLoading(true);
+      await axios.post("http://localhost:3000/api/career", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("Application sent successfully!");
+      setShowModal(false);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        resume: null,
+        coverLetter: "",
+        experience: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send application");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Input change
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // File upload
+  const handleFileChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      resume: e.target.files[0],
+    }));
+  };
 
   const jobCategories = [
     {
@@ -165,10 +222,9 @@ const Career = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
       <Navbar />
 
-      {/* Introduction Overview */}
+      {/* ======= Company Values Section ======= */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -182,7 +238,6 @@ const Career = () => {
           </p>
         </div>
 
-        {/* Company Values */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {companyValues.map((value, index) => (
             <div
@@ -199,82 +254,7 @@ const Career = () => {
         </div>
       </div>
 
-      {/* Culture & Diversity */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Diversity is Our Strength
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                We celebrate different perspectives, backgrounds, and
-                experiences. Our inclusive culture ensures everyone feels
-                valued, heard, and empowered to bring their authentic selves to
-                work.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">
-                    Equal opportunity employer
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">
-                    Employee resource groups
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">
-                    Inclusive hiring practices
-                  </span>
-                </div>
-                <div className="flex items-center">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-                  <span className="text-gray-700">
-                    Diversity & inclusion training
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-blue-100 to-purple-100 p-8 rounded-lg">
-              <div className="text-center">
-                <div className="text-4xl mb-4">🌍</div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  Global Team
-                </h3>
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">40+</div>
-                    <div className="text-sm text-gray-600">Countries</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">15+</div>
-                    <div className="text-sm text-gray-600">Languages</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">60%</div>
-                    <div className="text-sm text-gray-600">
-                      Women in Leadership
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-blue-600">85%</div>
-                    <div className="text-sm text-gray-600">
-                      Employee Satisfaction
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Current Open Roles */}
+      {/* ======= Open Roles ======= */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
@@ -302,10 +282,7 @@ const Career = () => {
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
-                  <span className="hidden sm:inline">
-                    {category.title.split(" ")[0]}
-                  </span>
-                  <span className="sm:hidden">{category.icon}</span>
+                  {category.title}
                 </button>
               ))}
             </div>
@@ -356,102 +333,10 @@ const Career = () => {
         </div>
       </div>
 
-      {/* How to Apply */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            How to Apply
-          </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ready to join our team? Here's how to get started on your journey
-            with us.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-blue-600">1</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-3">
-              Find Your Role
-            </h3>
-            <p className="text-gray-600">
-              Browse our open positions and find the role that matches your
-              skills and interests.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-blue-600">2</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-3">
-              Submit Application
-            </h3>
-            <p className="text-gray-600">
-              Send us your resume, cover letter, and any relevant portfolio work
-              or projects.
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-blue-600">3</span>
-            </div>
-            <h3 className="text-xl font-bold text-gray-800 mb-3">
-              Interview Process
-            </h3>
-            <p className="text-gray-600">
-              Connect with our team through interviews and get to know each
-              other better.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-blue-50 p-8 rounded-lg mt-12">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Don't See the Perfect Role?
-            </h3>
-            <p className="text-lg text-gray-600 mb-6">
-              We're always looking for talented individuals. Send us your resume
-              and we'll keep you in mind for future opportunities.
-            </p>
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-              Send General Application
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Benefits Section */}
-      <div className="bg-gray-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Benefits & Perks
-            </h2>
-            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              We believe in taking care of our team with comprehensive benefits
-              and perks that support your whole life.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="bg-gray-700 p-6 rounded-lg">
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-                <p className="text-gray-300">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
+      {/* ======= Application Modal ======= */}
       {showModal && selectedRole && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-lg rounded-lg shadow-lg p-6 relative">
-            {/* Close button */}
+          <div className="bg-white w-full max-w-lg rounded-lg shadow-lg p-6 relative max-h-screen overflow-y-auto">
             <button
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
               onClick={() => setShowModal(false)}
@@ -463,90 +348,99 @@ const Career = () => {
               Apply for {selectedRole.title}
             </h2>
 
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               {/* Pre-filled fields */}
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Job Title
-                </label>
-                <input
-                  type="text"
-                  name="jobTitle"
-                  value={selectedRole.title}
-                  readOnly
-                  className="w-full mt-1 p-2 border rounded bg-gray-100"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Location
-                </label>
-                <input
-                  type="text"
-                  name="location"
-                  value={selectedRole.location}
-                  readOnly
-                  className="w-full mt-1 p-2 border rounded bg-gray-100"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Department
-                </label>
-                <input
-                  type="text"
-                  name="department"
-                  value={selectedRole.department}
-                  readOnly
-                  className="w-full mt-1 p-2 border rounded bg-gray-100"
-                />
-              </div>
-              {/* Applicant fields */}
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Enter your name"
-                  className="w-full mt-1 p-2 border rounded"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="w-full mt-1 p-2 border rounded"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 text-sm font-medium">
-                  Resume
-                </label>
-                <input
-                  type="file"
-                  name="resume"
-                  accept=".pdf,application/pdf"
-                  className="w-full mt-1 p-2 border rounded"
-                />
-              </div>
+              <input
+                type="text"
+                value={selectedRole.title}
+                readOnly
+                className="w-full p-2 border rounded bg-gray-100"
+              />
+              <input
+                type="text"
+                value={selectedRole.location}
+                readOnly
+                className="w-full p-2 border rounded bg-gray-100"
+              />
+              <input
+                type="text"
+                value={selectedRole.department}
+                readOnly
+                className="w-full p-2 border rounded bg-gray-100"
+              />
+
+              {/* User fields */}
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
+                placeholder="Your Name"
+                required
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                placeholder="Email"
+                required
+                className="w-full p-2 border rounded"
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="Phone"
+                className="w-full p-2 border rounded"
+              />
+
+              <select
+                name="experience"
+                value={formData.experience}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+              >
+                <option value="">Select experience</option>
+                <option value="0-1">0-1 Years</option>
+                <option value="1-2">1-2 Years</option>
+                <option value="2-3">2-3 Years</option>
+                <option value="3-5">3-5 Years</option>
+                <option value="5+">5+ Years</option>
+              </select>
+
+              <textarea
+                name="coverLetter"
+                value={formData.coverLetter}
+                onChange={handleInputChange}
+                rows="4"
+                placeholder="Cover Letter / Additional Info"
+                className="w-full p-2 border rounded"
+              />
+
+              <input
+                type="file"
+                name="resume"
+                onChange={handleFileChange}
+                accept=".pdf,.doc,.docx"
+                required
+                className="w-full p-2 border rounded"
+              />
+
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+                disabled={loading}
+                className="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 disabled:bg-gray-400"
               >
-                Submit Application
+                {loading ? "Submitting..." : "Submit Application"}
               </button>
             </form>
           </div>
         </div>
       )}
 
-      {/* Footer */}
       <Footer />
     </div>
   );

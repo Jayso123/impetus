@@ -176,7 +176,7 @@ export default function Products() {
                                 {categoryItem.product?.map((product, idx) => (
                                   <li key={idx}>
                                     <Link
-                                      to={`/products/${encodeURIComponent(
+                                      to={`/${encodeURIComponent(
                                         product.Uname
                                       )}`}
                                     >
@@ -284,7 +284,7 @@ export default function Products() {
                                 rel="noopener noreferrer"
                                 className="flex-1"
                               >
-                                <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg font-medium transition-colors duration-200 active:scale-95">
+                                <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
                                   Catalogue
                                 </button>
                               </a>
@@ -352,7 +352,7 @@ export default function Products() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors duration-200 active:scale-95">
+                            <button className="w-full bg-gray-800 hover:bg-gray-900 text-white px-3 py-2 rounded-lg text-lg font-medium transition-colors duration-200 active:scale-95">
                               Catalogue
                             </button>
                           </a>

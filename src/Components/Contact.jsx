@@ -26,6 +26,29 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState("Submit");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+    const { name, email, message } = e.target.elements;
+    let details = {
+      name: name.value,
+      email: email.value,
+      phone: phone.value,
+      companyName: companyName.value,
+      message: message.value,
+    };
+    let response = await fetch("http://localhost:5000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(details),
+    });
+    setStatus("Submit");
+    let result = await response.json();
+    alert(result.status);
+  };
 
   // 🔹 Validation
   const validateForm = () => {
@@ -159,7 +182,7 @@ const Contact = () => {
                     </h3>
                   </div>
                 ) : (
-                  <form className="space-y-6">
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     {/* Name + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
@@ -256,7 +279,8 @@ const Contact = () => {
                           : "bg-gradient-to-r from-sky-600 to-sky-700 text-white hover:scale-105 transform transition"
                       }`}
                     >
-                      {isSubmitting ? "Sending..." : "Send Message"}
+                      {/* {isSubmitting ? "Sending..." : "Send Message"} */}
+                      {status}
                     </button>
                   </form>
                 )}
