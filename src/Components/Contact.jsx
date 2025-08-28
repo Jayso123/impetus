@@ -5,12 +5,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaRocket,
-  FaClock,
   FaCheckCircle,
-  FaPaperPlane,
-  FaIndustry,
-  FaUsers,
-  FaHeadset,
 } from "react-icons/fa";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -25,69 +20,73 @@ const Contact = () => {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("Send Message");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState("Submit");
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
-    const { name, email, message } = e.target.elements;
-    let details = {
-      name: name.value,
-      email: email.value,
-      phone: phone.value,
-      companyName: companyName.value,
-      message: message.value,
-    };
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(details),
-    });
-    setStatus("Submit");
-    let result = await response.json();
-    alert(result.status);
-  };
 
-  // 🔹 Validation
+  // Validation
   const validateForm = () => {
-    let newErrors = {};
-
+    const newErrors = {};
     if (!form.name.trim()) newErrors.name = "Full Name is required";
     if (!form.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^([^\s@]+)@([^\s@]+)\.([^\s@]+)$/.test(form.email)) {
       newErrors.email = "Invalid email format";
     }
-
-    if (form.phone && !/^\d{10}$/.test(form.phone)) {
+    if (form.phone && !/^\d{10}$/.test(form.phone))
       newErrors.phone = "Phone must be 10 digits";
-    }
-
     if (!form.message.trim()) newErrors.message = "Message is required";
-
     return newErrors;
   };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" }); // clear error on input
+    setErrors({ ...errors, [e.target.name]: "" });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validationErrors = validateForm();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatus("Sending...");
+
+    try {
+      const response = await axios.post("/api/Contact", form); // backend endpoint
+      if (response.data.success) {
+        setSubmitted(true);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          companyName: "",
+          message: "",
+        });
+      } else {
+        alert("Failed to send message. Try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+      setStatus("Send Message");
+    }
   };
 
   return (
     <>
       <Navbar />
-
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-sky-50 relative overflow-hidden">
-        {/* Hero Section */}
         <div className="relative pt-20 pb-12 px-4 sm:px-6 lg:px-8 top-6">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-sm font-medium mb-6">
               <FaRocket className="w-4 h-4 mr-2" />
               Get In Touch
             </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Let's Start a
               <span className="block text-sky-600 mt-2">Conversation</span>
@@ -95,10 +94,9 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Main Content */}
         <div className="relative px-4 sm:px-6 lg:px-8 pb-20">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Information */}
+            {/* Contact Info */}
             <div className="lg:col-span-1 space-y-6">
               <div className="text-center lg:text-left mb-8">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
@@ -110,7 +108,6 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* Cards with Click Action */}
               <div className="space-y-4">
                 {[
                   {
@@ -119,24 +116,20 @@ const Contact = () => {
                     content: "+91 77718 99901",
                     link: "tel:+917771899901",
                     color: "from-green-500 to-green-600",
-                    bgColor: "from-green-50 to-green-100",
                   },
                   {
                     icon: FaEnvelope,
                     title: "Email Us",
                     content: "contact@impetustechno.com",
                     link: "mailto:contact@impetustechno.com",
-                    subtitle: "We'll respond within 24hrs",
                     color: "from-blue-500 to-blue-600",
-                    bgColor: "from-blue-50 to-blue-100",
                   },
                   {
                     icon: FaMapMarkerAlt,
                     title: "Visit Us",
                     content: "Vadodara, Gujarat",
-                    link: "https://maps.app.goo.gl/BXhgMyEEhwUhT4dY9", // could be google maps
+                    link: "https://maps.app.goo.gl/BXhgMyEEhwUhT4dY9",
                     color: "from-purple-500 to-purple-600",
-                    bgColor: "from-purple-50 to-purple-100",
                   },
                 ].map((item, index) => (
                   <a
@@ -159,11 +152,6 @@ const Contact = () => {
                         <p className="text-gray-800 font-medium">
                           {item.content}
                         </p>
-                        {item.subtitle && (
-                          <p className="text-sm text-gray-500">
-                            {item.subtitle}
-                          </p>
-                        )}
                       </div>
                     </div>
                   </a>
@@ -183,7 +171,6 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form className="space-y-6" onSubmit={handleSubmit}>
-                    {/* Name + Email */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -195,7 +182,6 @@ const Contact = () => {
                           value={form.name}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
-                          placeholder="Enter your full name"
                         />
                         {errors.name && (
                           <p className="text-red-500 text-sm">{errors.name}</p>
@@ -211,7 +197,6 @@ const Contact = () => {
                           value={form.email}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
-                          placeholder="Enter your email"
                         />
                         {errors.email && (
                           <p className="text-red-500 text-sm">{errors.email}</p>
@@ -219,7 +204,6 @@ const Contact = () => {
                       </div>
                     </div>
 
-                    {/* Phone + Company */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -231,7 +215,6 @@ const Contact = () => {
                           value={form.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
-                          placeholder="Enter phone number"
                         />
                         {errors.phone && (
                           <p className="text-red-500 text-sm">{errors.phone}</p>
@@ -247,12 +230,10 @@ const Contact = () => {
                           value={form.companyName}
                           onChange={handleChange}
                           className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
-                          placeholder="Enter company name"
                         />
                       </div>
                     </div>
 
-                    {/* Message */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Message *
@@ -263,7 +244,6 @@ const Contact = () => {
                         onChange={handleChange}
                         rows="5"
                         className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-sky-500"
-                        placeholder="Tell us about your requirements..."
                       />
                       {errors.message && (
                         <p className="text-red-500 text-sm">{errors.message}</p>
@@ -279,7 +259,6 @@ const Contact = () => {
                           : "bg-gradient-to-r from-sky-600 to-sky-700 text-white hover:scale-105 transform transition"
                       }`}
                     >
-                      {/* {isSubmitting ? "Sending..." : "Send Message"} */}
                       {status}
                     </button>
                   </form>

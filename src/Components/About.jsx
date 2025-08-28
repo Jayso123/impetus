@@ -32,7 +32,7 @@ const AboutUs = () => {
   const fetchAboutData = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:5000/api/about-us");
+      const response = await fetch("/api/about-us");
       const data = await response.json();
       setAboutData(data);
     } catch (error) {
@@ -40,7 +40,7 @@ const AboutUs = () => {
       // Set default values if API fails
       setAboutData({
         companyHistory:
-          "Founded in 2024 in Vadodara, we have grown to become one of the leading manufacturers of machine tools in India. Our commitment to quality, innovation, and customer satisfaction has helped us build a strong reputation in the industry, We are pleased to introduce ourselves as Solution provider to your esteemed organization. As the name 'Impetus' suggests, we help our customers to drive productivity and move industry along by delivering most productive solutions, which are being developed and introduced continuously.",
+          "Founded in 2017 in Vadodara, Impetus Techno Solutions is a leading Indian manufacturer of high-quality machine tools and cutting solutions. Driven by innovation and customer satisfaction, the company delivers precision CNC cutting tools, tool holders, and productivity-enhancing industrial tooling solutions. With a strong focus on driving efficiency and continuous product development, Impetus Techno Solutions empowers manufacturing industries across India to achieve higher productivity and precision. Their commitment to quality and innovation has established them as a preferred partner in the machining and industrial tooling sector.",
         stats: {
           distributors: 200,
           products: 150,
@@ -105,7 +105,7 @@ const AboutUs = () => {
               About Us
             </h1>
             <p className="mt-4 text-xl text-gray-600">
-              Leading Machine Tools Manufacturer in Vadodara
+              Your Partner for Advanced Machine Tool Solutions in Vadodara
             </p>
           </motion.div>
 

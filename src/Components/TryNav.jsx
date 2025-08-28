@@ -79,9 +79,13 @@ export default function TryNav() {
                     Engineering Excellence in Industrial Solutions
                   </p>
                   <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl lg:max-w-none">
-                    We deliver premium lubricants, precision instruments,
-                    storage systems, and professional tools that drive
-                    industrial productivity forward.
+                    We specialize in premium industrial lubricants, precision
+                    instruments, durable storage systems, and professional-grade
+                    industrial tools designed to enhance operational efficiency.
+                    Our cutting-edge CNC cutting machine tools, precision
+                    measuring instruments, and high-quality industrial hand
+                    tools serve manufacturing and engineering industries seeking
+                    excellence and reliability.
                   </p>
                 </div>
 
@@ -310,28 +314,28 @@ export default function TryNav() {
                   icon: FaIndustry,
                   title: "Lubricants & Cutting Oils",
                   description:
-                    "Premium quality lubricants that extend equipment life and optimize performance across all industrial applications.",
+                    "We offer premium quality industrial lubricants and cutting oils designed to extend equipment life and optimize performance across diverse industrial applications. Their high-performance lubricants reduce friction and wear, ensuring smoother machining processes and improved operational efficiency. Trusted by manufacturing industries, they provide reliable lubrication solutions that enhance productivity and minimize maintenance costs.",
                   color: "blue",
                 },
                 {
                   icon: FaRuler,
                   title: "Precision Measuring Tools",
                   description:
-                    "State-of-the-art measuring instruments providing unmatched accuracy for critical manufacturing processes.",
+                    "We offer precision measuring tools designed to deliver unmatched accuracy for critical manufacturing processes. Our premium range includes calibrated vernier calipers, micrometers, dial gauges, and digital measuring instruments that ensure high precision and reliability for quality control in industries such as automotive, aerospace, and metal fabrication.",
                   color: "green",
                 },
                 {
                   icon: FaDatabase,
                   title: "Smart Storage Solutions",
                   description:
-                    "Efficient storage systems designed to maximize space utilization and streamline workflow operations.",
+                    "We offer smart storage solutions designed to maximize space utilization and streamline workflow operations for industrial and warehouse settings. Their modular and efficient storage systems improve organization, enhance productivity, and cater to diverse storage needs with durable, space-saving racks and customized designs. Delivering reliable and innovative storage solutions.",
                   color: "purple",
                 },
                 {
                   icon: FaTools,
                   title: "Professional Hand Tools",
                   description:
-                    "Ergonomically designed, precision-crafted tools trusted by professionals for demanding industrial tasks.",
+                    " We offer ergonomically designed, precision-crafted professional hand tools trusted by industrial experts for demanding applications. Our durable, high-quality tools ensure optimal comfort and performance, enhancing productivity and safety in heavy-duty manufacturing and technical tasks.",
                   color: "orange",
                 },
               ].map((feature, index) => (

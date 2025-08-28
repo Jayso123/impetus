@@ -34,11 +34,9 @@ const Career = () => {
 
     try {
       setLoading(true);
-      await axios.post(
-        "https://impetustechno.com/api/career", // ✅ normal URL
-        submissionData,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
+      await axios.post("/api/career", submissionData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
 
       alert("Application sent successfully!");
       setShowModal(false);
